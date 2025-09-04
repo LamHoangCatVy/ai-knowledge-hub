@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Technologies in Banking - Executive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        // Content Data - Dễ dàng chỉnh sửa
+        const contentData = {
+            hero: {
+                title: "AI Technologies in Banking",
+                subtitle: "Phiên phiến về AI",
+                description: "Tổng quan các công nghệ AI và ứng dụng cụ thể trong ngành ngân hàng Việt Nam"
+            },
+            sections: {
+                ai: {
+                    title: "Artificial Intelligence",
+                    icon: "🧠",
+                    description: "AI giúp ngân hàng tự động hóa quyết định và cải thiện trải nghiệm khách hàng",
+                    definition: "AI là khả năng máy tính thực hiện các tác vụ đòi hỏi trí thông minh: nhận thức, học hỏi, suy luận.",
+                    features: ["Xử lý dữ liệu lớn", "Nhận dạng patterns", "Tự động quyết định", "Thích ứng thay đổi"],
+                    types: [
+                        { name: "Narrow AI", desc: "AI chuyên biệt (hiện tại)", icon: "🎯" },
+                        { name: "General AI", desc: "AI đa năng (tương lai)", icon: "🧠" },
+                        { name: "Super AI", desc: "AI siêu việt (viễn cảnh)", icon: "🌟" }
+                    ],
+                    bankingApps: [
+                        { name: "Fraud Detection", desc: "Phát hiện giao dịch gian lận real-time", icon: "💳" },
+                        { name: "Credit Scoring", desc: "Đánh giá khả năng trả nợ tự động", icon: "🎯" },
+                        { name: "Chatbot Support", desc: "Hỗ trợ khách hàng 24/7", icon: "🤖" }
+                    ]
+                },
+                ml: {
+                    title: "Machine Learning",
+                    icon: "📊",
+                    description: "ML cho phép hệ thống học từ dữ liệu để đưa ra dự đoán chính xác",
+                    definition: "ML là nhánh AI cho phép máy tính học từ dữ liệu mà không cần lập trình cụ thể.",
+                    process: ["Thu thập dữ liệu", "Tiền xử lý", "Huấn luyện model", "Đánh giá & triển khai"],
+                    types: [
+                        { name: "Supervised Learning", desc: "Học có giám sát với dữ liệu có nhãn", color: "green", example: "Classification, Regression" },
+                        { name: "Unsupervised Learning", desc: "Tìm patterns trong dữ liệu không nhãn", color: "blue", example: "Clustering, Dimensionality Reduction" },
+                        { name: "Reinforcement Learning", desc: "Học qua tương tác và phản hồi", color: "purple", example: "Game AI, Trading Algorithms" }
+                    ],
+                    creditScoring: {
+                        steps: [
+                            { step: "Thu thập dữ liệu", desc: "Lịch sử tín dụng, thu nhập, chi tiêu" },
+                            { step: "Feature Engineering", desc: "Tạo debt-to-income ratio, payment history" },
+                            { step: "Model Training", desc: "Random Forest, Gradient Boosting" },
+                            { step: "Scoring", desc: "Tạo điểm tín dụng để quyết định" }
+                        ],
+                        benefits: [
+                            { metric: "Độ chính xác", value: "Cao hơn manual" },
+                            { metric: "Thời gian xử lý", value: "Giảm đáng kể" },
+                            { metric: "Bad debt rate", value: "Giảm so với trước" },
+                            { metric: "Khả năng xử lý", value: "24/7 tự động" }
+                        ]
+                    }
+                },
+                dl: {
+                    title: "Deep Learning",
+                    icon: "🔮",
+                    description: "DL sử dụng mạng neural nhiều lớp để xử lý dữ liệu phức tạp",
+                    definition: "Deep Learning sử dụng mạng neural nhiều lớp để học đặc trưng phức tạp từ dữ liệu thô.",
+                    advantages: ["Tự động trích xuất features", "Xử lý dữ liệu phi cấu trúc", "Độ chính xác cao", "Khả năng generalization tốt"],
+                    architectures: [
+                        { name: "CNN", desc: "Convolutional Neural Networks - Computer vision", icon: "📷", color: "purple" },
+                        { name: "RNN", desc: "Recurrent Neural Networks - Dữ liệu tuần tự", icon: "🔄", color: "blue" },
+                        { name: "Transformer", desc: "Transformer Architecture - Mô hình ngôn ngữ", icon: "🎯", color: "green" }
+                    ],
+                    bankingApps: [
+                        { name: "Intelligent OCR", desc: "CNN + RNN xử lý CMND, passport, hợp đồng", icon: "📄", use: "Onboarding khách hàng, KYC digital" },
+                        { name: "Signature Verification", desc: "Siamese Networks xác thực chữ ký", icon: "✍️", use: "Xác thực giao dịch lớn" },
+                        { name: "Anti-Money Laundering", desc: "Graph Neural Networks phát hiện rửa tiền", icon: "🔍", use: "Compliance tự động" }
+                    ]
+                },
+                llm: {
+                    title: "Large Language Models",
+                    icon: "💬",
+                    description: "LLM hiểu và tạo ngôn ngữ tự nhiên để giao tiếp với khách hàng",
+                    definition: "LLM được huấn luyện trên text khổng lồ để hiểu ngữ cảnh và thực hiện tác vụ ngôn ngữ phức tạp.",
+                    features: ["Hiểu ngữ cảnh sâu", "Tạo text tự nhiên", "Multi-task learning", "Few-shot learning", "Reasoning capabilities"],
+                    architecture: [
+                        { name: "Self-Attention", desc: "Tập trung vào phần quan trọng của input", icon: "🎯", color: "orange" },
+                        { name: "Multi-Head Attention", desc: "Xử lý nhiều relationships đồng thời", icon: "🔄", color: "blue" },
+                        { name: "Positional Encoding", desc: "Hiểu thứ tự words trong sequence", icon: "📈", color: "green" }
+                    ],
+                    example: {
+                        customer: "Tôi muốn chuyển 50 triệu cho con gái ở Mỹ học đại học, phí chuyển khoản quốc tế bao nhiêu và mất bao lâu?",
+                        response: "Tôi hiểu bạn cần chuyển tiền học phí. Với 50 triệu VND: Phí theo quy định hiện tại, thời gian 1-2 ngày làm việc, cần CMND + giấy tờ học phí. Tôi có thể hỗ trợ bạn làm ngay không?",
+                        capabilities: [
+                            { name: "Context Understanding", desc: "Hiểu mục đích chuyển tiền (học phí)" },
+                            { name: "Information Retrieval", desc: "Truy xuất chính sách phí và thời gian" },
+                            { name: "Personalization", desc: "Đề xuất phù hợp nhu cầu" },
+                            { name: "Next Action", desc: "Hướng dẫn bước tiếp theo" }
+                        ]
+                    }
+                },
+                genai: {
+                    title: "Generative AI",
+                    icon: "🎨",
+                    description: "GenAI tạo nội dung mới từ text, hình ảnh đến documents",
+                    types: [
+                        { name: "Text Generation", desc: "LLM tạo văn bản, báo cáo, email", icon: "📝", color: "pink" },
+                        { name: "Image Generation", desc: "DALL-E, Midjourney tạo hình ảnh", icon: "🖼️", color: "blue" },
+                        { name: "Code Generation", desc: "GitHub Copilot tạo code tự động", icon: "💻", color: "green" },
+                        { name: "Audio/Video", desc: "Tạo âm thanh, video từ text", icon: "🎵", color: "purple" }
+                    ],
+                    architectures: [
+                        { name: "GANs", desc: "Generator vs Discriminator - tạo dữ liệu synthetic", icon: "🎲" },
+                        { name: "VAEs", desc: "Variational Autoencoders - Encode-decode", icon: "🔄" },
+                        { name: "Diffusion Models", desc: "Stable Diffusion - tạo hình ảnh chất lượng cao", icon: "🌊" }
+                    ],
+                    bankingApps: [
+                        { name: "Automated Reporting", desc: "Tạo báo cáo tài chính, risk assessment từ raw data", icon: "📊", benefit: "Tiết kiệm thời gian" },
+                        { name: "Personalized Marketing", desc: "Tạo nội dung marketing cho từng segment", icon: "💳", benefit: "Tăng conversion rate" },
+                        { name: "Synthetic Data", desc: "Tạo dữ liệu giả để training mà không vi phạm privacy", icon: "🔒", benefit: "Bảo vệ dữ liệu khách hàng" }
+                    ],
+                    contractExample: {
+                        input: "Tạo hợp đồng vay mua nhà 2 tỷ, lãi suất theo quy định, thời hạn 15 năm cho khách hàng Nguyễn Văn A",
+                        output: "Hợp đồng đầy đủ với điều khoản pháp lý, lịch trả nợ, quyền và nghĩa vụ các bên"
+                    }
+                },
+                agentic: {
+                    title: "Agentic AI",
+                    icon: "🤖",
+                    description: "AI tự chủ có khả năng lập kế hoạch và thực thi tự động",
+                    definition: "Agentic AI hoạt động độc lập, đưa ra quyết định và thực hiện hành động để đạt mục tiêu.",
+                    characteristics: [
+                        { name: "Autonomy", desc: "Hoạt động độc lập" },
+                        { name: "Goal-oriented", desc: "Hướng đến mục tiêu" },
+                        { name: "Planning", desc: "Lập kế hoạch hành động" },
+                        { name: "Adaptation", desc: "Thích ứng với thay đổi" }
+                    ],
+                    architecture: [
+                        { name: "Planning Module", desc: "Phân tích tình huống và lập kế hoạch", icon: "🧠", color: "red" },
+                        { name: "Execution Engine", desc: "Thực thi actions và monitor progress", icon: "⚡", color: "blue" },
+                        { name: "Knowledge Base", desc: "Lưu trữ kiến thức và kinh nghiệm", icon: "📊", color: "green" },
+                        { name: "Feedback Loop", desc: "Học hỏi và cải thiện từ kết quả", icon: "🔄", color: "purple" }
+                    ],
+                    riskManagement: {
+                        workflow: [
+                            { step: "Monitor", desc: "Theo dõi 24/7 market conditions", icon: "👁️" },
+                            { step: "Analyze", desc: "Phân tích risk factors, correlation", icon: "🧠" },
+                            { step: "Act", desc: "Tự động hedge positions, adjust limits", icon: "⚡" },
+                            { step: "Report", desc: "Báo cáo real-time cho risk managers", icon: "📊" }
+                        ],
+                        scenario: [
+                            { event: "Trigger", desc: "USD/VND tăng đột biến" },
+                            { event: "Analysis", desc: "Ảnh hưởng đến loan portfolio" },
+                            { event: "Action", desc: "Tự động hedge FX exposure" },
+                            { event: "Result", desc: "Giảm potential loss" }
+                        ],
+                        benefits: [
+                            { name: "Speed", desc: "Phản ứng real-time" },
+                            { name: "Accuracy", desc: "Độ chính xác cao" },
+                            { name: "Coverage", desc: "Monitor nhiều factors đồng thời" },
+                            { name: "Cost", desc: "Giảm operational risk cost" }
+                        ]
+                    }
+                },
+                rpa: {
+                    title: "RPA vs Agentic RPA",
+                    icon: "⚙️",
+                    description: "So sánh RPA truyền thống và Agentic RPA thông minh",
+                    comparison: [
+                        { feature: "Intelligence Level", traditional: "Rule-based, cố định", agentic: "AI-powered, thông minh" },
+                        { feature: "Decision Making", traditional: "Không có", agentic: "Tự động ra quyết định" },
+                        { feature: "Adaptability", traditional: "Hạn chế", agentic: "Tự thích ứng" },
+                        { feature: "Data Processing", traditional: "Structured data", agentic: "Unstructured + Structured" },
+                        { feature: "Complexity", traditional: "Simple, repetitive tasks", agentic: "Complex workflows" },
+                        { feature: "Learning", traditional: "Không học", agentic: "Continuous learning" }
+                    ],
+                    example: {
+                        scenario: "Khách hàng gọi hỏi về nghiệp vụ phức tạp",
+                        query: "Tôi muốn vay mua nhà nhưng chưa có hộ khẩu thành phố, có thể làm được không và cần giấy tờ gì?",
+                        workflow: [
+                            { step: "AI hiểu query", desc: "NLP phân tích ý định" },
+                            { step: "Tìm policy", desc: "RPA search knowledge base" },
+                            { step: "Tạo hướng dẫn", desc: "AI generate step-by-step guide" },
+                            { step: "Chuẩn bị tools", desc: "RPA setup workflow templates" },
+                            { step: "Hướng dẫn staff", desc: "Real-time guidance" }
+                        ],
+                        response: {
+                            answer: "Anh/chị có thể vay mua nhà mà không cần hộ khẩu TP. Cần bổ sung: Giấy xác nhận cư trú tạm thời + Hợp đồng thuê nhà.",
+                            nextStep: "Tôi đã chuẩn bị sẵn form đăng ký và checklist. Bấm nút 'Start Loan Process' để bắt đầu."
+                        },
+                        automation: [
+                            "Tự động mở loan application form",
+                            "Pre-fill customer information", 
+                            "Generate document checklist",
+                            "Schedule follow-up tasks"
+                        ],
+                        results: [
+                            { metric: "High First Call Resolution", icon: "📞" },
+                            { metric: "Faster Processing", icon: "⚡" },
+                            { metric: "Reduced Training Time", icon: "📚" },
+                            { metric: "High Customer Satisfaction", icon: "😊" }
+                        ]
+                    }
+                }
+            }
+        };
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        slate: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+        }
+        
+        .gradient-secondary {
+            background: linear-gradient(135deg, #16a34a 0%, #14532d 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tech-badge {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            height: 1px;
+            margin: 4rem 0;
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hamburger Menu Styles */
+        .hamburger-icon {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .hamburger-line {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: #475569;
+            border-radius: 2px;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-line:nth-child(1) { top: 0; }
+        .hamburger-line:nth-child(2) { top: 8px; }
+        .hamburger-line:nth-child(3) { top: 16px; }
+        
+        .hamburger-active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .menu-content {
+            min-width: 280px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-overlay.active .menu-content {
+            transform: translateX(0);
+        }
+        
+        .menu-item {
+            border-left: 3px solid transparent;
+        }
+        
+        .menu-item:hover {
+            border-left-color: #22c55e;
+        }
+        
+        .comparison-table {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #22c55e;
+        }
+        
+        .workflow-step {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .workflow-step::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 0 2px #e2e8f0;
+        }
+        
+        .banking-example {
+            background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+            color: white;
+        }
+        
+        .banking-example .card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+    <!-- Hamburger Menu -->
+    <nav class="fixed top-6 right-6 z-50">
+        <!-- Hamburger Button -->
+        <button id="hamburger-btn" class="nav-glass rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="hamburger-icon">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </button>
+        
+        <!-- Menu Overlay -->
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-content nav-glass rounded-2xl p-6 shadow-2xl">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800">📚 Mục lục</h3>
+                    <button id="close-menu" class="text-slate-500 hover:text-slate-700 text-2xl">×</button>
+                </div>
+                <div class="space-y-3">
+                    <a href="#hero" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">🏠 Tổng quan</a>
+                    <a href="#ai" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">🧠 AI</a>
+                    <a href="#ml" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">📊 ML</a>
+                    <a href="#dl" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">🔮 DL</a>
+                    <a href="#llm" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">💬 LLM</a>
+                    <a href="#genai" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">🎨 GenAI</a>
+                    <a href="#agentic" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">🤖 Agentic</a>
+                    <a href="#rpa" class="menu-item block px-4 py-3 text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">⚙️ RPA</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen gradient-primary flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative z-10 text-center text-white px-6 max-w-7xl mx-auto">
+            <div class="animate-fade-in">
+                <h1 class="text-6xl font-bold mb-8 leading-tight tracking-tight">
+                    <span id="hero-title">AI Technologies in Banking</span>
+                    <span class="block text-4xl font-light opacity-90 mt-4" id="hero-subtitle">Hướng dẫn thực tế cho DCIO</span>
+                </h1>
+                <p class="text-xl mb-12 opacity-90 max-w-4xl mx-auto font-light leading-relaxed" id="hero-description">
+                    Tổng quan các công nghệ AI và ứng dụng cụ thể trong ngành ngân hàng Việt Nam
+                </p>
+                <div class="flex justify-center">
+                    <button class="bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-100 transition-all shadow-xl" onclick="document.getElementById('ai').scrollIntoView({behavior: 'smooth'})">
+                        Khám phá ngay
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto mt-20 animate-slide-up">
+                <div class="tech-badge p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="font-semibold text-lg">AI</h3>
+                    <p class="text-sm opacity-80 mt-2">Trí tuệ nhân tạo</p>
+                </div>
+                <div class="tech-badge p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="font-semibold text-lg">ML</h3>
+                    <p class="text-sm opacity-80 mt-2">Machine Learning</p>
+                </div>
+                <div class="tech-badge p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">🔮</div>
+                    <h3 class="font-semibold text-lg">DL</h3>
+                    <p class="text-sm opacity-80 mt-2">Deep Learning</p>
+                </div>
+                <div class="tech-badge p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">💬</div>
+                    <h3 class="font-semibold text-lg">LLM</h3>
+                    <p class="text-sm opacity-80 mt-2">Large Language Models</p>
+                </div>
+                <div class="tech-badge p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="font-semibold text-lg">Agentic</h3>
+                    <p class="text-sm opacity-80 mt-2">Autonomous Systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section id="ai" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-primary-100 rounded-2xl mb-8">
+                    <span class="text-4xl">🧠</span>
+                </div>
+                <h2 class="text-6xl font-bold text-slate-900 mb-6">Artificial Intelligence</h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto font-light">
+                    Trí tuệ nhân tạo - Khả năng của máy tính mô phỏng trí thông minh con người
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🎯 AI là gì?</h3>
+                    <div class="space-y-6">
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg">Định nghĩa</h4>
+                            <p class="text-slate-700 leading-relaxed">
+                                AI là khả năng của máy tính thực hiện các tác vụ thường đòi hỏi trí thông minh con người: 
+                                nhận thức, học hỏi, suy luận và ra quyết định.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-900 text-lg">Đặc điểm chính</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                                    <span class="text-slate-700">Xử lý dữ liệu phức tạp</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                                    <span class="text-slate-700">Nhận dạng patterns</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                                    <span class="text-slate-700">Tự động hóa quyết định</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                                    <span class="text-slate-700">Thích ứng môi trường</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🏗️ Phân loại AI</h3>
+                    <div class="space-y-6">
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🎯</span>
+                                Narrow AI (ANI)
+                            </h4>
+                            <p class="text-slate-700">AI chuyên biệt cho một tác vụ cụ thể (hiện tại)</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🧠</span>
+                                General AI (AGI)
+                            </h4>
+                            <p class="text-slate-700">AI có khả năng tư duy như con người (tương lai)</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🌟</span>
+                                Super AI (ASI)
+                            </h4>
+                            <p class="text-slate-700">AI vượt trội hơn trí thông minh con người (viễn cảnh)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banking-example rounded-3xl p-12 shadow-2xl">
+                <h3 class="text-4xl font-bold mb-8 text-center">🏦 AI trong Banking - Phương pháp Rule-based</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">💳</div>
+                        <h4 class="font-bold mb-4 text-xl">Fraud Detection (Rule-based)</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            Sử dụng quy tắc cố định do con người tạo ra để phát hiện gian lận.
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Ví dụ:</strong> "Nếu giao dịch > 100 triệu VÀ ngoài giờ hành chính → Cảnh báo"
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">🎯</div>
+                        <h4 class="font-bold mb-4 text-xl">Credit Scoring (Rule-based)</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            Đánh giá tín dụng theo scorecard cố định với trọng số định sẵn.
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Ví dụ:</strong> "Thu nhập > 15 triệu = +50 điểm, Tuổi 25-40 = +30 điểm"
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">🤖</div>
+                        <h4 class="font-bold mb-4 text-xl">Chatbot (Rule-based)</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            Trả lời theo script có sẵn, nhận diện keyword để chọn câu trả lời.
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Ví dụ:</strong> Thấy "số dư" → Trả lời template về cách check số dư
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Learning Section -->
+    <section id="ml" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-2xl mb-8">
+                    <span class="text-4xl">📊</span>
+                </div>
+                <h2 class="text-6xl font-bold text-slate-900 mb-6">Machine Learning</h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto font-light">
+                    Học máy - Khả năng tự học và cải thiện từ dữ liệu mà không cần lập trình cụ thể
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🔬 ML là gì?</h3>
+                    <div class="space-y-6">
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg">Khái niệm</h4>
+                            <p class="text-slate-700 leading-relaxed">
+                                ML là một nhánh của AI cho phép máy tính học từ dữ liệu để đưa ra dự đoán 
+                                hoặc quyết định mà không cần được lập trình cụ thể cho từng tình huống.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-4 text-lg">Quy trình ML</h4>
+                            <div class="space-y-4">
+                                <div class="workflow-step p-4 rounded-xl ml-6">
+                                    <span class="font-semibold text-slate-900">1. Thu thập dữ liệu</span>
+                                </div>
+                                <div class="workflow-step p-4 rounded-xl ml-6">
+                                    <span class="font-semibold text-slate-900">2. Tiền xử lý dữ liệu</span>
+                                </div>
+                                <div class="workflow-step p-4 rounded-xl ml-6">
+                                    <span class="font-semibold text-slate-900">3. Huấn luyện model</span>
+                                </div>
+                                <div class="workflow-step p-4 rounded-xl ml-6">
+                                    <span class="font-semibold text-slate-900">4. Đánh giá & triển khai</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">📈 Các loại ML</h3>
+                    <div class="space-y-6">
+                        <div class="bg-green-50 p-6 rounded-2xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🎯</span>
+                                Supervised Learning
+                            </h4>
+                            <p class="text-green-700 mb-2">Học có giám sát - Huấn luyện với dữ liệu có nhãn</p>
+                            <p class="text-sm text-green-600">Ví dụ: Classification, Regression</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🔍</span>
+                                Unsupervised Learning
+                            </h4>
+                            <p class="text-blue-700 mb-2">Học không giám sát - Tìm patterns trong dữ liệu không nhãn</p>
+                            <p class="text-sm text-blue-600">Ví dụ: Clustering, Dimensionality Reduction</p>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-500">
+                            <h4 class="font-bold text-purple-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🎮</span>
+                                Reinforcement Learning
+                            </h4>
+                            <p class="text-purple-700 mb-2">Học tăng cường - Học thông qua tương tác và phản hồi</p>
+                            <p class="text-sm text-purple-600">Ví dụ: Game AI, Trading Algorithms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI vs ML Comparison -->
+            <div class="bg-slate-100 rounded-3xl p-12 shadow-2xl mb-12">
+                <h3 class="text-4xl font-bold mb-8 text-center text-slate-900">⚖️ So sánh: AI vs ML trong Fraud Detection</h3>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 p-8 rounded-2xl border-2 border-blue-200">
+                        <h4 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
+                            <span class="text-3xl mr-3">🧠</span>
+                            AI (Rule-based) Fraud Detection
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="font-semibold text-blue-700 mb-2">Cách hoạt động:</div>
+                                <div class="text-blue-600 text-sm">Quy tắc cố định do con người tạo</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="font-semibold text-blue-700 mb-2">Ví dụ:</div>
+                                <div class="text-blue-600 text-sm">"Giao dịch > 100 triệu + Ngoài giờ + Nước ngoài = Cảnh báo"</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="font-semibold text-blue-700 mb-2">Nhược điểm:</div>
+                                <div class="text-blue-600 text-sm">Kẻ gian học được pattern, dễ bypass</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 p-8 rounded-2xl border-2 border-green-200">
+                        <h4 class="text-2xl font-bold text-green-800 mb-6 flex items-center">
+                            <span class="text-3xl mr-3">📊</span>
+                            ML (Learning-based) Fraud Detection
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="font-semibold text-green-700 mb-2">Cách hoạt động:</div>
+                                <div class="text-green-600 text-sm">Tự học từ millions giao dịch thật</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="font-semibold text-green-700 mb-2">Ví dụ:</div>
+                                <div class="text-green-600 text-sm">"Khách thường mua cafe 30k lúc 7h, hôm nay mua điện tử 50 triệu lúc 2h sáng"</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="font-semibold text-green-700 mb-2">Ưu điểm:</div>
+                                <div class="text-green-600 text-sm">Phát hiện fraud tinh vi, thích ứng thủ đoạn mới</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 bg-yellow-50 p-6 rounded-2xl border-2 border-yellow-200">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-yellow-800 mb-4">💡 Kết luận</div>
+                        <p class="text-yellow-700 text-lg leading-relaxed">
+                            ML có khả năng phát hiện fraud tốt hơn đáng kể so với AI rule-based truyền thống 
+                            nhờ khả năng học từ dữ liệu và thích ứng với các thủ đoạn gian lận mới.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banking-example rounded-3xl p-12 shadow-2xl">
+                <h3 class="text-4xl font-bold mb-8 text-center">🏦 ML trong Credit Scoring</h3>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-6">📋 Quy trình ML Credit Scoring</h4>
+                        <div class="space-y-4">
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">1. Thu thập dữ liệu</div>
+                                <div class="text-sm opacity-90">Lịch sử tín dụng, thu nhập, chi tiêu, hành vi giao dịch</div>
+                            </div>
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">2. Feature Engineering</div>
+                                <div class="text-sm opacity-90">Tạo các đặc trưng như debt-to-income ratio, payment history</div>
+                            </div>
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">3. Model Training</div>
+                                <div class="text-sm opacity-90">Sử dụng Random Forest, Gradient Boosting để dự đoán default risk</div>
+                            </div>
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">4. Scoring</div>
+                                <div class="text-sm opacity-90">Tạo điểm tín dụng để quyết định phê duyệt</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-6">📊 Lợi ích thực tế</h4>
+                        <div class="card p-8 rounded-2xl">
+                            <div class="space-y-6">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg">Độ chính xác dự đoán</span>
+                                    <span class="font-bold text-xl text-green-300">↗️ Cao hơn manual</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg">Thời gian xử lý</span>
+                                    <span class="font-bold text-xl text-green-300">⚡ Giảm đáng kể</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg">Bad debt rate</span>
+                                    <span class="font-bold text-xl text-green-300">📉 Giảm so với trước</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg">Khả năng xử lý</span>
+                                    <span class="font-bold text-xl text-green-300">🕐 24/7 tự động</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Learning Section -->
+    <section id="dl" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-purple-100 rounded-2xl mb-8">
+                    <span class="text-4xl">🔮</span>
+                </div>
+                <h2 class="text-6xl font-bold text-slate-900 mb-6">Deep Learning</h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto font-light">
+                    Học sâu - Mạng neural nhân tạo nhiều lớp mô phỏng cách hoạt động của não bộ
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🧠 Deep Learning là gì?</h3>
+                    <div class="space-y-6">
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg">Định nghĩa</h4>
+                            <p class="text-slate-700 leading-relaxed">
+                                Deep Learning là một nhánh của ML sử dụng mạng neural nhân tạo với nhiều lớp ẩn 
+                                để học các đặc trưng phức tạp từ dữ liệu thô.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-4 text-lg">Ưu điểm</h4>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                    <span class="text-slate-700">Tự động trích xuất features</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                    <span class="text-slate-700">Xử lý dữ liệu phi cấu trúc</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                    <span class="text-slate-700">Độ chính xác cao với big data</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                    <span class="text-slate-700">Khả năng generalization tốt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🏗️ Kiến trúc Neural Network</h3>
+                    <div class="space-y-6">
+                        <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-500">
+                            <h4 class="font-bold text-purple-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">📷</span>
+                                CNN
+                            </h4>
+                            <p class="text-purple-700">Convolutional Neural Networks - Chuyên xử lý hình ảnh và computer vision</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🔄</span>
+                                RNN
+                            </h4>
+                            <p class="text-blue-700">Recurrent Neural Networks - Xử lý dữ liệu tuần tự như text, time series</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-2xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🎯</span>
+                                Transformer
+                            </h4>
+                            <p class="text-green-700">Transformer Architecture - Nền tảng cho các mô hình ngôn ngữ hiện đại</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banking-example rounded-3xl p-12 shadow-2xl">
+                <h3 class="text-4xl font-bold mb-8 text-center">🏦 Deep Learning trong Document Processing</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">📄</div>
+                        <h4 class="font-bold mb-4 text-xl">Intelligent OCR</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            CNN + RNN xử lý tài liệu phức tạp như CMND, passport, hợp đồng với độ chính xác cao
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Ứng dụng:</strong> Onboarding khách hàng tự động, KYC digital
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">✍️</div>
+                        <h4 class="font-bold mb-4 text-xl">Signature Verification</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            Siamese Networks phân tích đặc trưng chữ ký để xác thực danh tính trong giao dịch
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Ứng dụng:</strong> Xác thực giao dịch lớn, mở tài khoản
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">🔍</div>
+                        <h4 class="font-bold mb-4 text-xl">Anti-Money Laundering</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            Graph Neural Networks phân tích mạng lưới giao dịch để phát hiện rửa tiền
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Ứng dụng:</strong> Compliance tự động, báo cáo STR
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LLM Section -->
+    <section id="llm" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-orange-100 rounded-2xl mb-8">
+                    <span class="text-4xl">💬</span>
+                </div>
+                <h2 class="text-6xl font-bold text-slate-900 mb-6">Large Language Models</h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto font-light">
+                    Mô hình ngôn ngữ lớn - AI hiểu và tạo ra ngôn ngữ tự nhiên như con người
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🤖 LLM là gì?</h3>
+                    <div class="space-y-6">
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg">Khái niệm</h4>
+                            <p class="text-slate-700 leading-relaxed">
+                                LLM là mô hình AI được huấn luyện trên khối lượng text khổng lồ để hiểu ngữ cảnh, 
+                                tạo nội dung và thực hiện các tác vụ ngôn ngữ phức tạp.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-4 text-lg">Đặc điểm</h4>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                    <span class="text-slate-700">Hiểu ngữ cảnh sâu</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                    <span class="text-slate-700">Tạo text tự nhiên</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                    <span class="text-slate-700">Multi-task learning</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                    <span class="text-slate-700">Few-shot learning</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                    <span class="text-slate-700">Reasoning capabilities</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🏗️ Kiến trúc Transformer</h3>
+                    <div class="space-y-6">
+                        <div class="bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-500">
+                            <h4 class="font-bold text-orange-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🎯</span>
+                                Self-Attention
+                            </h4>
+                            <p class="text-orange-700">Cho phép model tập trung vào các phần quan trọng của input</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🔄</span>
+                                Multi-Head Attention
+                            </h4>
+                            <p class="text-blue-700">Xử lý nhiều loại relationships trong dữ liệu đồng thời</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-2xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">📈</span>
+                                Positional Encoding
+                            </h4>
+                            <p class="text-green-700">Hiểu thứ tự và vị trí của words trong sequence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banking-example rounded-3xl p-12 shadow-2xl">
+                <h3 class="text-4xl font-bold mb-8 text-center">🏦 LLM trong Customer Service Banking</h3>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-6">💬 Intelligent Virtual Assistant</h4>
+                        <div class="space-y-6">
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-3 text-lg">Khách hàng:</div>
+                                <div class="italic opacity-90 text-sm leading-relaxed bg-white/10 p-4 rounded-lg">
+                                    "Tôi muốn chuyển 50 triệu cho con gái ở Mỹ học đại học, 
+                                    phí chuyển khoản quốc tế bao nhiêu và mất bao lâu?"
+                                </div>
+                            </div>
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-3 text-lg">LLM Assistant:</div>
+                                <div class="text-sm opacity-90 leading-relaxed bg-white/10 p-4 rounded-lg">
+                                    "Tôi hiểu bạn cần chuyển tiền học phí. Với số tiền 50 triệu VND:<br>
+                                    • Phí: Theo quy định hiện tại của ngân hàng<br>
+                                    • Thời gian: 1-2 ngày làm việc<br>
+                                    • Cần: CMND + giấy tờ học phí<br>
+                                    Tôi có thể hỗ trợ bạn làm ngay không?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-6">🎯 Khả năng của LLM</h4>
+                        <div class="space-y-4">
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">Context Understanding</div>
+                                <div class="text-sm opacity-90">Hiểu mục đích chuyển tiền (học phí)</div>
+                            </div>
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">Information Retrieval</div>
+                                <div class="text-sm opacity-90">Truy xuất chính sách phí và thời gian</div>
+                            </div>
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">Personalization</div>
+                                <div class="text-sm opacity-90">Đề xuất phù hợp với nhu cầu cụ thể</div>
+                            </div>
+                            <div class="card p-6 rounded-2xl">
+                                <div class="font-bold mb-2">Next Action</div>
+                                <div class="text-sm opacity-90">Hướng dẫn bước tiếp theo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generative AI Section -->
+    <section id="genai" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-pink-100 rounded-2xl mb-8">
+                    <span class="text-4xl">🎨</span>
+                </div>
+                <h2 class="text-6xl font-bold text-slate-900 mb-6">Generative AI</h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto font-light">
+                    AI tạo sinh - Tạo ra nội dung mới từ text, hình ảnh, code đến âm thanh
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🎯 GenAI bao gồm gì?</h3>
+                    <div class="space-y-6">
+                        <div class="bg-pink-50 p-6 rounded-2xl border-l-4 border-pink-500">
+                            <h4 class="font-bold text-pink-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">📝</span>
+                                Text Generation
+                            </h4>
+                            <p class="text-pink-700">LLM tạo văn bản, báo cáo, email, contracts</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🖼️</span>
+                                Image Generation
+                            </h4>
+                            <p class="text-blue-700">DALL-E, Midjourney tạo hình ảnh từ mô tả</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-2xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">💻</span>
+                                Code Generation
+                            </h4>
+                            <p class="text-green-700">GitHub Copilot, CodeT5 tạo code tự động</p>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-500">
+                            <h4 class="font-bold text-purple-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🎵</span>
+                                Audio/Video
+                            </h4>
+                            <p class="text-purple-700">Tạo âm thanh, video từ text prompts</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🏗️ Kiến trúc GenAI</h3>
+                    <div class="space-y-6">
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg flex items-center">
+                                <span class="text-2xl mr-3">🎲</span>
+                                GANs
+                            </h4>
+                            <p class="text-slate-700">Generator vs Discriminator - tạo dữ liệu synthetic chất lượng cao</p>
+                        </div>
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg flex items-center">
+                                <span class="text-2xl mr-3">🔄</span>
+                                VAEs
+                            </h4>
+                            <p class="text-slate-700">Variational Autoencoders - Encode-decode với latent space</p>
+                        </div>
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg flex items-center">
+                                <span class="text-2xl mr-3">🌊</span>
+                                Diffusion Models
+                            </h4>
+                            <p class="text-slate-700">Stable Diffusion - tạo hình ảnh chất lượng cao từ noise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banking-example rounded-3xl p-12 shadow-2xl">
+                <h3 class="text-4xl font-bold mb-8 text-center">🏦 GenAI trong Banking Operations</h3>
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">📊</div>
+                        <h4 class="font-bold mb-4 text-xl">Automated Reporting</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            GenAI tạo báo cáo tài chính, risk assessment, compliance reports từ raw data
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Lợi ích:</strong> Tiết kiệm thời gian tạo báo cáo
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">💳</div>
+                        <h4 class="font-bold mb-4 text-xl">Personalized Marketing</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            Tạo nội dung marketing cá nhân hóa cho từng segment khách hàng
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Kết quả:</strong> Tăng conversion rate
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="text-4xl mb-6">🔒</div>
+                        <h4 class="font-bold mb-4 text-xl">Synthetic Data</h4>
+                        <p class="opacity-90 leading-relaxed mb-4">
+                            Tạo dữ liệu giả để training ML models mà không vi phạm privacy
+                        </p>
+                        <div class="text-sm opacity-75 bg-white/10 p-3 rounded-lg">
+                            <strong>Lợi ích:</strong> Bảo vệ dữ liệu khách hàng
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-8 rounded-2xl">
+                    <h4 class="text-2xl font-bold mb-6 text-center">🎯 Ví dụ thực tế: Contract Generation</h4>
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div class="bg-white/10 p-6 rounded-2xl border-l-4 border-pink-400">
+                            <div class="font-bold mb-3 text-lg">Input:</div>
+                            <div class="text-sm opacity-90 leading-relaxed">
+                                "Tạo hợp đồng vay mua nhà 2 tỷ, lãi suất theo quy định, 
+                                thời hạn 15 năm cho khách hàng Nguyễn Văn A"
+                            </div>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-2xl border-l-4 border-green-400">
+                            <div class="font-bold mb-3 text-lg">Output:</div>
+                            <div class="text-sm opacity-90 leading-relaxed">
+                                Hợp đồng đầy đủ với các điều khoản pháp lý, 
+                                lịch trả nợ, quyền và nghĩa vụ các bên
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agentic AI Section -->
+    <section id="agentic" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-red-100 rounded-2xl mb-8">
+                    <span class="text-4xl">🤖</span>
+                </div>
+                <h2 class="text-6xl font-bold text-slate-900 mb-6">Agentic AI</h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto font-light">
+                    AI tự chủ - Hệ thống AI có khả năng lập kế hoạch, ra quyết định và thực thi tự động
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🎯 Agentic AI là gì?</h3>
+                    <div class="space-y-6">
+                        <div class="highlight-box p-6 rounded-2xl">
+                            <h4 class="font-bold text-slate-900 mb-3 text-lg">Định nghĩa</h4>
+                            <p class="text-slate-700 leading-relaxed">
+                                Agentic AI là hệ thống AI có khả năng hoạt động độc lập, đưa ra quyết định 
+                                và thực hiện hành động để đạt được mục tiêu được giao.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-4 text-lg">Đặc điểm chính</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <span class="font-semibold text-slate-900">Autonomy:</span>
+                                        <span class="text-slate-700 ml-2">Hoạt động độc lập</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <span class="font-semibold text-slate-900">Goal-oriented:</span>
+                                        <span class="text-slate-700 ml-2">Hướng đến mục tiêu</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <span class="font-semibold text-slate-900">Planning:</span>
+                                        <span class="text-slate-700 ml-2">Lập kế hoạch hành động</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <span class="font-semibold text-slate-900">Adaptation:</span>
+                                        <span class="text-slate-700 ml-2">Thích ứng với thay đổi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200 card-hover">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8">🏗️ Kiến trúc Agentic System</h3>
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-2xl border-l-4 border-red-500">
+                            <h4 class="font-bold text-red-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🧠</span>
+                                Planning Module
+                            </h4>
+                            <p class="text-red-700">Phân tích tình huống và lập kế hoạch hành động</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">⚡</span>
+                                Execution Engine
+                            </h4>
+                            <p class="text-blue-700">Thực thi các actions và monitor progress</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-2xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">📊</span>
+                                Knowledge Base
+                            </h4>
+                            <p class="text-green-700">Lưu trữ kiến thức và kinh nghiệm</p>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-500">
+                            <h4 class="font-bold text-purple-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🔄</span>
+                                Feedback Loop
+                            </h4>
+                            <p class="text-purple-700">Học hỏi và cải thiện từ kết quả</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banking-example rounded-3xl p-12 shadow-2xl">
+                <h3 class="text-4xl font-bold mb-8 text-center">🏦 Agentic AI trong Risk Management</h3>
+                <div class="space-y-8">
+                    <div class="card p-8 rounded-2xl">
+                        <h4 class="text-2xl font-bold mb-6 text-center">🎯 Autonomous Risk Monitoring System</h4>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl">👁️</span>
+                                </div>
+                                <div class="font-bold mb-2 text-lg">Monitor</div>
+                                <div class="text-sm opacity-90">Theo dõi 24/7 market conditions, portfolio performance</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl">🧠</span>
+                                </div>
+                                <div class="font-bold mb-2 text-lg">Analyze</div>
+                                <div class="text-sm opacity-90">Phân tích risk factors, correlation, stress scenarios</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl">⚡</span>
+                                </div>
+                                <div class="font-bold mb-2 text-lg">Act</div>
+                                <div class="text-sm opacity-90">Tự động hedge positions, adjust limits</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl">📊</span>
+                                </div>
+                                <div class="font-bold mb-2 text-lg">Report</div>
+                                <div class="text-sm opacity-90">Báo cáo real-time cho risk managers</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div class="card p-8 rounded-2xl">
+                            <h5 class="font-bold mb-4 text-xl">📈 Scenario Example</h5>
+                            <div class="space-y-3">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Trigger:</strong> USD/VND tăng đột biến trong thời gian ngắn</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Analysis:</strong> Ảnh hưởng đến loan portfolio</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Action:</strong> Tự động hedge FX exposure</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Result:</strong> Giảm potential loss</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-8 rounded-2xl">
+                            <h5 class="font-bold mb-4 text-xl">🎯 Benefits</h5>
+                            <div class="space-y-3">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Speed:</strong> Phản ứng real-time</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Accuracy:</strong> Độ chính xác cao</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Coverage:</strong> Monitor nhiều factors đồng thời</div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-white rounded-full mt-2"></div>
+                                    <div><strong>Cost:</strong> Giảm operational risk cost</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RPA Section -->
+    <section id="rpa" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-cyan-100 rounded-2xl mb-8">
+                    <span class="text-4xl">⚙️</span>
+                </div>
+                <h2 class="text-6xl font-bold text-slate-900 mb-6">RPA vs Agentic RPA</h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto font-light">
+                    So sánh giữa RPA truyền thống và Agentic RPA thông minh
+                </p>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="comparison-table rounded-3xl p-12 shadow-2xl mb-20">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-2 border-slate-200">
+                                <th class="text-left py-6 px-4 text-2xl font-bold text-slate-900">Đặc điểm</th>
+                                <th class="text-center py-6 px-4 text-2xl font-bold text-slate-600">Traditional RPA</th>
+                                <th class="text-center py-6 px-4 text-2xl font-bold text-primary-600">Agentic RPA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-lg">
+                            <tr class="border-b border-slate-100">
+                                <td class="py-6 px-4 font-semibold text-slate-900">🧠 Intelligence Level</td>
+                                <td class="py-6 px-4 text-center text-slate-600">Rule-based, cố định</td>
+                                <td class="py-6 px-4 text-center text-primary-600 font-semibold">AI-powered, thông minh</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-6 px-4 font-semibold text-slate-900">🎯 Decision Making</td>
+                                <td class="py-6 px-4 text-center text-slate-600">Không có</td>
+                                <td class="py-6 px-4 text-center text-primary-600 font-semibold">Tự động ra quyết định</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-6 px-4 font-semibold text-slate-900">🔄 Adaptability</td>
+                                <td class="py-6 px-4 text-center text-slate-600">Hạn chế</td>
+                                <td class="py-6 px-4 text-center text-primary-600 font-semibold">Tự thích ứng</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-6 px-4 font-semibold text-slate-900">📊 Data Processing</td>
+                                <td class="py-6 px-4 text-center text-slate-600">Structured data</td>
+                                <td class="py-6 px-4 text-center text-primary-600 font-semibold">Unstructured + Structured</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-6 px-4 font-semibold text-slate-900">🎮 Complexity</td>
+                                <td class="py-6 px-4 text-center text-slate-600">Simple, repetitive tasks</td>
+                                <td class="py-6 px-4 text-center text-primary-600 font-semibold">Complex workflows</td>
+                            </tr>
+                            <tr>
+                                <td class="py-6 px-4 font-semibold text-slate-900">📈 Learning</td>
+                                <td class="py-6 px-4 text-center text-slate-600">Không học</td>
+                                <td class="py-6 px-4 text-center text-primary-600 font-semibold">Continuous learning</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="banking-example rounded-3xl p-12 shadow-2xl">
+                <h3 class="text-4xl font-bold mb-8 text-center">🏦 Ví dụ: Intelligent Customer Support System</h3>
+                
+                <div class="card p-8 rounded-2xl mb-8">
+                    <h4 class="text-2xl font-bold mb-6 text-center">📞 Scenario: Khách hàng gọi hỏi về nghiệp vụ phức tạp</h4>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-green-100 p-6 rounded-2xl border-2 border-green-300">
+                            <h5 class="font-bold text-green-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">👤</span>
+                                Customer Query
+                            </h5>
+                            <p class="text-green-700 leading-relaxed">
+                                "Tôi muốn vay mua nhà nhưng chưa có hộ khẩu thành phố, 
+                                có thể làm được không và cần giấy tờ gì?"
+                            </p>
+                        </div>
+                        <div class="bg-blue-100 p-6 rounded-2xl border-2 border-blue-300">
+                            <h5 class="font-bold text-blue-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🧠</span>
+                                AI Agent Analysis
+                            </h5>
+                            <p class="text-blue-700 leading-relaxed">
+                                Phân tích: Vay mua nhà + không có hộ khẩu TP 
+                                → Tìm policy cho trường hợp này
+                            </p>
+                        </div>
+                        <div class="bg-purple-100 p-6 rounded-2xl border-2 border-purple-300">
+                            <h5 class="font-bold text-purple-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">⚙️</span>
+                                RPA Execution
+                            </h5>
+                            <p class="text-purple-700 leading-relaxed">
+                                Tự động truy xuất policy, tạo checklist, 
+                                chuẩn bị workflow xử lý
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="gradient-primary text-white p-8 rounded-2xl">
+                        <h4 class="text-2xl font-bold mb-6 text-center">🔄 Agentic RPA Workflow</h4>
+                        <div class="grid md:grid-cols-5 gap-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl font-bold">1</span>
+                                </div>
+                                <div class="font-bold mb-2">AI hiểu query</div>
+                                <div class="text-sm opacity-90">NLP phân tích ý định</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl font-bold">2</span>
+                                </div>
+                                <div class="font-bold mb-2">Tìm policy</div>
+                                <div class="text-sm opacity-90">RPA search knowledge base</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl font-bold">3</span>
+                                </div>
+                                <div class="font-bold mb-2">Tạo hướng dẫn</div>
+                                <div class="text-sm opacity-90">AI generate step-by-step guide</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl font-bold">4</span>
+                                </div>
+                                <div class="font-bold mb-2">Chuẩn bị tools</div>
+                                <div class="text-sm opacity-90">RPA setup workflow templates</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl font-bold">5</span>
+                                </div>
+                                <div class="font-bold mb-2">Hướng dẫn staff</div>
+                                <div class="text-sm opacity-90">Real-time guidance</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+                            <h5 class="font-bold mb-4 text-xl text-slate-900">💬 AI Agent Response to Staff</h5>
+                            <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-primary-500">
+                                <p class="text-slate-700 leading-relaxed mb-4">
+                                    <strong>Trả lời khách hàng:</strong> "Anh/chị có thể vay mua nhà mà không cần hộ khẩu TP. 
+                                    Cần bổ sung: Giấy xác nhận cư trú tạm thời + Hợp đồng thuê nhà."
+                                </p>
+                                <p class="text-slate-700 leading-relaxed">
+                                    <strong>Bước tiếp theo:</strong> Tôi đã chuẩn bị sẵn form đăng ký và checklist. 
+                                    Bấm nút "Start Loan Process" để bắt đầu.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+                            <h5 class="font-bold mb-4 text-xl text-slate-900">⚡ RPA Automation</h5>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <span class="text-slate-700">Tự động mở loan application form</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <span class="text-slate-700">Pre-fill customer information</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <span class="text-slate-700">Generate document checklist</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <span class="text-slate-700">Schedule follow-up tasks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary-50 p-8 rounded-2xl border-2 border-primary-200">
+                        <h5 class="font-bold text-primary-800 mb-6 text-2xl text-center">🎯 Kết quả đạt được</h5>
+                        <div class="grid md:grid-cols-4 gap-6 text-center">
+                            <div>
+                                <div class="text-4xl font-bold text-primary-600 mb-2">📞</div>
+                                <div class="font-semibold text-primary-700">High First Call Resolution</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-primary-600 mb-2">⚡</div>
+                                <div class="font-semibold text-primary-700">Faster Processing</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-primary-600 mb-2">📚</div>
+                                <div class="font-semibold text-primary-700">Reduced Training Time</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-primary-600 mb-2">😊</div>
+                                <div class="font-semibold text-primary-700">High Customer Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Render content from JSON data
+        function renderContent() {
+            // Update hero section
+            document.getElementById('hero-title').textContent = contentData.hero.title;
+            document.getElementById('hero-subtitle').textContent = contentData.hero.subtitle;
+            document.getElementById('hero-description').textContent = contentData.hero.description;
+        }
+
+        // Initialize content when page loads
+        document.addEventListener('DOMContentLoaded', renderContent);
+
+        // Hamburger Menu Functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('hamburger-active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMenu() {
+            hamburgerBtn.classList.remove('hamburger-active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+
+        // Close menu when clicking overlay
+        menuOverlay.addEventListener('click', function(e) {
+            if (e.target === menuOverlay) {
+                closeMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.menu-item[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    closeMenu(); // Close menu after navigation
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card-hover, .banking-example, .comparison-table').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects to tech badges
+        document.querySelectorAll('.tech-badge').forEach(badge => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            badge.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979a3083b039a8b7',t:'MTc1Njk1NDMzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
